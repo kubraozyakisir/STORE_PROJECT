@@ -1,0 +1,61 @@
+C:\Users\ISKUR\Desktop\080220223\080220223\bin\Debug\080220223.exe.config
+C:\Users\ISKUR\Desktop\080220223\080220223\bin\Debug\080220223.exe
+C:\Users\ISKUR\Desktop\080220223\080220223\bin\Debug\080220223.pdb
+C:\Users\ISKUR\Desktop\080220223\080220223\bin\Debug\EntityFramework.dll
+C:\Users\ISKUR\Desktop\080220223\080220223\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ISKUR\Desktop\080220223\080220223\bin\Debug\EntityFramework.xml
+C:\Users\ISKUR\Desktop\080220223\080220223\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\080220223.csproj.AssemblyReference.cache
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\080220223.csproj.SuggestedBindingRedirects.cache
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\_080220223.Form1.resources
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\_080220223.Form2.resources
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\_080220223.Properties.Resources.resources
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\080220223.csproj.GenerateResource.cache
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\080220223.csproj.CoreCompileInputs.cache
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\080220223.csproj.CopyComplete
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\080220223.exe
+C:\Users\ISKUR\Desktop\080220223\080220223\obj\Debug\080220223.pdb
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\bin\Debug\080220223.exe.config
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\bin\Debug\080220223.exe
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\bin\Debug\080220223.pdb
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\bin\Debug\EntityFramework.dll
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\bin\Debug\EntityFramework.xml
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\080220223.csproj.AssemblyReference.cache
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\080220223.csproj.SuggestedBindingRedirects.cache
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Form1.resources
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Form2.resources
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Form3.resources
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Form4.resources
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Form5.resources
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Form6.resources
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Properties.Resources.resources
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\080220223.csproj.GenerateResource.cache
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\080220223.csproj.CoreCompileInputs.cache
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\080220223.csproj.CopyComplete
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\080220223.exe
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\080220223.pdb
+C:\Users\ISKUR\Desktop\08022022\080220223\080220223\obj\Debug\_080220223.Form7.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\bin\Debug\080220223.exe.config
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\bin\Debug\080220223.exe
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\bin\Debug\080220223.pdb
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\bin\Debug\EntityFramework.dll
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\bin\Debug\EntityFramework.xml
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\080220223.csproj.AssemblyReference.cache
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\080220223.csproj.SuggestedBindingRedirects.cache
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Form1.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Form2.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Form3.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Form4.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Form5.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Form6.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Form7.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\_080220223.Properties.Resources.resources
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\080220223.csproj.GenerateResource.cache
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\080220223.csproj.CoreCompileInputs.cache
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\080220223.csproj.CopyComplete
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\080220223.exe
+C:\Users\kubra\OneDrive\Masaüstü\STORE PROJECT\080220223\080220223\obj\Debug\080220223.pdb

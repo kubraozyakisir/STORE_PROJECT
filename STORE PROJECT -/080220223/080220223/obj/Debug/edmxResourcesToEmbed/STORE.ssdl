@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STOREModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="BolumNo" />
+    </Key>
+    <Property Name="BolumNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BolumAdi" Type="varchar" MaxLength="50" />
+    <Property Name="BolumUrunSayisi" Type="int" />
+    <Property Name="SorumluNo" Type="int" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciNo" />
+    </Key>
+    <Property Name="KullaniciNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdSoyad" Type="varchar" MaxLength="50" />
+    <Property Name="Sifre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Magaza">
+    <Key>
+      <PropertyRef Name="MagazaNo" />
+    </Key>
+    <Property Name="MagazaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MagazaAdi" Type="varchar" MaxLength="50" />
+    <Property Name="MagazaCiro" Type="money" />
+    <Property Name="MagazaAdres" Type="varchar" MaxLength="50" />
+    <Property Name="SevkiyatTarih" Type="date" />
+    <Property Name="SevkiyatGunu" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Malzeme">
+    <Key>
+      <PropertyRef Name="MalzemeNo" />
+    </Key>
+    <Property Name="MalzemeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MagazaNo" Type="int" />
+    <Property Name="MalzemeAdi" Type="varchar" MaxLength="50" />
+    <Property Name="MalzemeAdet" Type="int" />
+    <Property Name="MalzemeBirimFiyat" Type="money" />
+    <Property Name="MalzemeKod" Type="int" />
+    <Property Name="MalzemeAciklama" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sorumluluk">
+    <Key>
+      <PropertyRef Name="SorumlulukNo" />
+    </Key>
+    <Property Name="SorumlulukNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MagazaNo" Type="int" />
+    <Property Name="SorumluAdi" Type="varchar" MaxLength="50" />
+    <Property Name="SorumluMaas" Type="money" />
+    <Property Name="SorumluPrim" Type="money" />
+    <Property Name="SorumluVardiya" Type="int" />
+  </EntityType>
+  <Association Name="FK_Bolum_Sorumluluk">
+    <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="0..1" />
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sorumluluk">
+        <PropertyRef Name="SorumlulukNo" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="SorumluNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Malzeme_Magaza">
+    <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+    <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magaza">
+        <PropertyRef Name="MagazaNo" />
+      </Principal>
+      <Dependent Role="Malzeme">
+        <PropertyRef Name="MagazaNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sorumluluk_Magaza">
+    <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+    <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magaza">
+        <PropertyRef Name="MagazaNo" />
+      </Principal>
+      <Dependent Role="Sorumluluk">
+        <PropertyRef Name="MagazaNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="STOREModelStoreContainer">
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Magaza" EntityType="Self.Magaza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Malzeme" EntityType="Self.Malzeme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sorumluluk" EntityType="Self.Sorumluluk" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bolum_Sorumluluk" Association="Self.FK_Bolum_Sorumluluk">
+      <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Malzeme_Magaza" Association="Self.FK_Malzeme_Magaza">
+      <End Role="Magaza" EntitySet="Magaza" />
+      <End Role="Malzeme" EntitySet="Malzeme" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sorumluluk_Magaza" Association="Self.FK_Sorumluluk_Magaza">
+      <End Role="Magaza" EntitySet="Magaza" />
+      <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

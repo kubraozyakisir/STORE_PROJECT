@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STOREModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="BolumNo" />
+    </Key>
+    <Property Name="BolumNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BolumUrunSayisi" Type="Int32" />
+    <Property Name="SorumluNo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciNo" />
+    </Key>
+    <Property Name="KullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Magaza">
+    <Key>
+      <PropertyRef Name="MagazaNo" />
+    </Key>
+    <Property Name="MagazaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MagazaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MagazaCiro" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MagazaAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SevkiyatTarih" Type="DateTime" Precision="0" />
+    <Property Name="SevkiyatGunu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Malzeme">
+    <Key>
+      <PropertyRef Name="MalzemeNo" />
+    </Key>
+    <Property Name="MalzemeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MagazaNo" Type="Int32" />
+    <Property Name="MalzemeAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MalzemeAdet" Type="Int32" />
+    <Property Name="MalzemeBirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MalzemeKod" Type="Int32" />
+    <Property Name="MalzemeAciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Sorumluluk">
+    <Key>
+      <PropertyRef Name="SorumlulukNo" />
+    </Key>
+    <Property Name="SorumlulukNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MagazaNo" Type="Int32" />
+    <Property Name="SorumluAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SorumluMaas" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SorumluPrim" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SorumluVardiya" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Bolum_Sorumluluk">
+    <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="0..1" />
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sorumluluk">
+        <PropertyRef Name="SorumlulukNo" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="SorumluNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Malzeme_Magaza">
+    <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+    <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magaza">
+        <PropertyRef Name="MagazaNo" />
+      </Principal>
+      <Dependent Role="Malzeme">
+        <PropertyRef Name="MagazaNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sorumluluk_Magaza">
+    <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+    <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magaza">
+        <PropertyRef Name="MagazaNo" />
+      </Principal>
+      <Dependent Role="Sorumluluk">
+        <PropertyRef Name="MagazaNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="STOREEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+    <EntitySet Name="Magaza" EntityType="Self.Magaza" />
+    <EntitySet Name="Malzeme" EntityType="Self.Malzeme" />
+    <EntitySet Name="Sorumluluk" EntityType="Self.Sorumluluk" />
+    <AssociationSet Name="FK_Bolum_Sorumluluk" Association="Self.FK_Bolum_Sorumluluk">
+      <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Malzeme_Magaza" Association="Self.FK_Malzeme_Magaza">
+      <End Role="Magaza" EntitySet="Magaza" />
+      <End Role="Malzeme" EntitySet="Malzeme" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sorumluluk_Magaza" Association="Self.FK_Sorumluluk_Magaza">
+      <End Role="Magaza" EntitySet="Magaza" />
+      <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="STOREModelStoreContainer" CdmEntityContainer="STOREEntities">
+    <EntitySetMapping Name="Bolum">
+      <EntityTypeMapping TypeName="STOREModel.Bolum">
+        <MappingFragment StoreEntitySet="Bolum">
+          <ScalarProperty Name="BolumNo" ColumnName="BolumNo" />
+          <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+          <ScalarProperty Name="BolumUrunSayisi" ColumnName="BolumUrunSayisi" />
+          <ScalarProperty Name="SorumluNo" ColumnName="SorumluNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="STOREModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+          <ScalarProperty Name="KullaniciAdSoyad" ColumnName="KullaniciAdSoyad" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magaza">
+      <EntityTypeMapping TypeName="STOREModel.Magaza">
+        <MappingFragment StoreEntitySet="Magaza">
+          <ScalarProperty Name="MagazaNo" ColumnName="MagazaNo" />
+          <ScalarProperty Name="MagazaAdi" ColumnName="MagazaAdi" />
+          <ScalarProperty Name="MagazaCiro" ColumnName="MagazaCiro" />
+          <ScalarProperty Name="MagazaAdres" ColumnName="MagazaAdres" />
+          <ScalarProperty Name="SevkiyatTarih" ColumnName="SevkiyatTarih" />
+          <ScalarProperty Name="SevkiyatGunu" ColumnName="SevkiyatGunu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Malzeme">
+      <EntityTypeMapping TypeName="STOREModel.Malzeme">
+        <MappingFragment StoreEntitySet="Malzeme">
+          <ScalarProperty Name="MalzemeNo" ColumnName="MalzemeNo" />
+          <ScalarProperty Name="MagazaNo" ColumnName="MagazaNo" />
+          <ScalarProperty Name="MalzemeAdi" ColumnName="MalzemeAdi" />
+          <ScalarProperty Name="MalzemeAdet" ColumnName="MalzemeAdet" />
+          <ScalarProperty Name="MalzemeBirimFiyat" ColumnName="MalzemeBirimFiyat" />
+          <ScalarProperty Name="MalzemeKod" ColumnName="MalzemeKod" />
+          <ScalarProperty Name="MalzemeAciklama" ColumnName="MalzemeAciklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sorumluluk">
+      <EntityTypeMapping TypeName="STOREModel.Sorumluluk">
+        <MappingFragment StoreEntitySet="Sorumluluk">
+          <ScalarProperty Name="SorumlulukNo" ColumnName="SorumlulukNo" />
+          <ScalarProperty Name="MagazaNo" ColumnName="MagazaNo" />
+          <ScalarProperty Name="SorumluAdi" ColumnName="SorumluAdi" />
+          <ScalarProperty Name="SorumluMaas" ColumnName="SorumluMaas" />
+          <ScalarProperty Name="SorumluPrim" ColumnName="SorumluPrim" />
+          <ScalarProperty Name="SorumluVardiya" ColumnName="SorumluVardiya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

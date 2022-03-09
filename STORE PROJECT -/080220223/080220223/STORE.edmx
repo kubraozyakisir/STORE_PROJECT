@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="STOREModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="BolumNo" />
+          </Key>
+          <Property Name="BolumNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BolumAdi" Type="varchar" MaxLength="50" />
+          <Property Name="BolumUrunSayisi" Type="int" />
+          <Property Name="SorumluNo" Type="int" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciNo" />
+          </Key>
+          <Property Name="KullaniciNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Sifre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Magaza">
+          <Key>
+            <PropertyRef Name="MagazaNo" />
+          </Key>
+          <Property Name="MagazaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MagazaAdi" Type="varchar" MaxLength="50" />
+          <Property Name="MagazaCiro" Type="money" />
+          <Property Name="MagazaAdres" Type="varchar" MaxLength="50" />
+          <Property Name="SevkiyatTarih" Type="date" />
+          <Property Name="SevkiyatGunu" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Malzeme">
+          <Key>
+            <PropertyRef Name="MalzemeNo" />
+          </Key>
+          <Property Name="MalzemeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MagazaNo" Type="int" />
+          <Property Name="MalzemeAdi" Type="varchar" MaxLength="50" />
+          <Property Name="MalzemeAdet" Type="int" />
+          <Property Name="MalzemeBirimFiyat" Type="money" />
+          <Property Name="MalzemeKod" Type="int" />
+          <Property Name="MalzemeAciklama" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sorumluluk">
+          <Key>
+            <PropertyRef Name="SorumlulukNo" />
+          </Key>
+          <Property Name="SorumlulukNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MagazaNo" Type="int" />
+          <Property Name="SorumluAdi" Type="varchar" MaxLength="50" />
+          <Property Name="SorumluMaas" Type="money" />
+          <Property Name="SorumluPrim" Type="money" />
+          <Property Name="SorumluVardiya" Type="int" />
+        </EntityType>
+        <Association Name="FK_Bolum_Sorumluluk">
+          <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="0..1" />
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sorumluluk">
+              <PropertyRef Name="SorumlulukNo" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="SorumluNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Malzeme_Magaza">
+          <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+          <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magaza">
+              <PropertyRef Name="MagazaNo" />
+            </Principal>
+            <Dependent Role="Malzeme">
+              <PropertyRef Name="MagazaNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sorumluluk_Magaza">
+          <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+          <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magaza">
+              <PropertyRef Name="MagazaNo" />
+            </Principal>
+            <Dependent Role="Sorumluluk">
+              <PropertyRef Name="MagazaNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="STOREModelStoreContainer">
+          <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magaza" EntityType="Self.Magaza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Malzeme" EntityType="Self.Malzeme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sorumluluk" EntityType="Self.Sorumluluk" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bolum_Sorumluluk" Association="Self.FK_Bolum_Sorumluluk">
+            <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+            <End Role="Bolum" EntitySet="Bolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Malzeme_Magaza" Association="Self.FK_Malzeme_Magaza">
+            <End Role="Magaza" EntitySet="Magaza" />
+            <End Role="Malzeme" EntitySet="Malzeme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sorumluluk_Magaza" Association="Self.FK_Sorumluluk_Magaza">
+            <End Role="Magaza" EntitySet="Magaza" />
+            <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STOREModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="BolumNo" />
+          </Key>
+          <Property Name="BolumNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BolumUrunSayisi" Type="Int32" />
+          <Property Name="SorumluNo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciNo" />
+          </Key>
+          <Property Name="KullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Magaza">
+          <Key>
+            <PropertyRef Name="MagazaNo" />
+          </Key>
+          <Property Name="MagazaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MagazaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MagazaCiro" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MagazaAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SevkiyatTarih" Type="DateTime" Precision="0" />
+          <Property Name="SevkiyatGunu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Malzeme">
+          <Key>
+            <PropertyRef Name="MalzemeNo" />
+          </Key>
+          <Property Name="MalzemeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MagazaNo" Type="Int32" />
+          <Property Name="MalzemeAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MalzemeAdet" Type="Int32" />
+          <Property Name="MalzemeBirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MalzemeKod" Type="Int32" />
+          <Property Name="MalzemeAciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sorumluluk">
+          <Key>
+            <PropertyRef Name="SorumlulukNo" />
+          </Key>
+          <Property Name="SorumlulukNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MagazaNo" Type="Int32" />
+          <Property Name="SorumluAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SorumluMaas" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SorumluPrim" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SorumluVardiya" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Bolum_Sorumluluk">
+          <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="0..1" />
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sorumluluk">
+              <PropertyRef Name="SorumlulukNo" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="SorumluNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Malzeme_Magaza">
+          <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+          <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magaza">
+              <PropertyRef Name="MagazaNo" />
+            </Principal>
+            <Dependent Role="Malzeme">
+              <PropertyRef Name="MagazaNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sorumluluk_Magaza">
+          <End Role="Magaza" Type="Self.Magaza" Multiplicity="0..1" />
+          <End Role="Sorumluluk" Type="Self.Sorumluluk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magaza">
+              <PropertyRef Name="MagazaNo" />
+            </Principal>
+            <Dependent Role="Sorumluluk">
+              <PropertyRef Name="MagazaNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="STOREEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bolum" EntityType="Self.Bolum" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="Magaza" EntityType="Self.Magaza" />
+          <EntitySet Name="Malzeme" EntityType="Self.Malzeme" />
+          <EntitySet Name="Sorumluluk" EntityType="Self.Sorumluluk" />
+          <AssociationSet Name="FK_Bolum_Sorumluluk" Association="Self.FK_Bolum_Sorumluluk">
+            <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+            <End Role="Bolum" EntitySet="Bolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Malzeme_Magaza" Association="Self.FK_Malzeme_Magaza">
+            <End Role="Magaza" EntitySet="Magaza" />
+            <End Role="Malzeme" EntitySet="Malzeme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sorumluluk_Magaza" Association="Self.FK_Sorumluluk_Magaza">
+            <End Role="Magaza" EntitySet="Magaza" />
+            <End Role="Sorumluluk" EntitySet="Sorumluluk" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STOREModelStoreContainer" CdmEntityContainer="STOREEntities">
+          <EntitySetMapping Name="Bolum">
+            <EntityTypeMapping TypeName="STOREModel.Bolum">
+              <MappingFragment StoreEntitySet="Bolum">
+                <ScalarProperty Name="BolumNo" ColumnName="BolumNo" />
+                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+                <ScalarProperty Name="BolumUrunSayisi" ColumnName="BolumUrunSayisi" />
+                <ScalarProperty Name="SorumluNo" ColumnName="SorumluNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="STOREModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+                <ScalarProperty Name="KullaniciAdSoyad" ColumnName="KullaniciAdSoyad" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magaza">
+            <EntityTypeMapping TypeName="STOREModel.Magaza">
+              <MappingFragment StoreEntitySet="Magaza">
+                <ScalarProperty Name="MagazaNo" ColumnName="MagazaNo" />
+                <ScalarProperty Name="MagazaAdi" ColumnName="MagazaAdi" />
+                <ScalarProperty Name="MagazaCiro" ColumnName="MagazaCiro" />
+                <ScalarProperty Name="MagazaAdres" ColumnName="MagazaAdres" />
+                <ScalarProperty Name="SevkiyatTarih" ColumnName="SevkiyatTarih" />
+                <ScalarProperty Name="SevkiyatGunu" ColumnName="SevkiyatGunu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Malzeme">
+            <EntityTypeMapping TypeName="STOREModel.Malzeme">
+              <MappingFragment StoreEntitySet="Malzeme">
+                <ScalarProperty Name="MalzemeNo" ColumnName="MalzemeNo" />
+                <ScalarProperty Name="MagazaNo" ColumnName="MagazaNo" />
+                <ScalarProperty Name="MalzemeAdi" ColumnName="MalzemeAdi" />
+                <ScalarProperty Name="MalzemeAdet" ColumnName="MalzemeAdet" />
+                <ScalarProperty Name="MalzemeBirimFiyat" ColumnName="MalzemeBirimFiyat" />
+                <ScalarProperty Name="MalzemeKod" ColumnName="MalzemeKod" />
+                <ScalarProperty Name="MalzemeAciklama" ColumnName="MalzemeAciklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sorumluluk">
+            <EntityTypeMapping TypeName="STOREModel.Sorumluluk">
+              <MappingFragment StoreEntitySet="Sorumluluk">
+                <ScalarProperty Name="SorumlulukNo" ColumnName="SorumlulukNo" />
+                <ScalarProperty Name="MagazaNo" ColumnName="MagazaNo" />
+                <ScalarProperty Name="SorumluAdi" ColumnName="SorumluAdi" />
+                <ScalarProperty Name="SorumluMaas" ColumnName="SorumluMaas" />
+                <ScalarProperty Name="SorumluPrim" ColumnName="SorumluPrim" />
+                <ScalarProperty Name="SorumluVardiya" ColumnName="SorumluVardiya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
